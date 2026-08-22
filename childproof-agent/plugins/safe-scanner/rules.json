@@ -1,0 +1,4 @@
+{
+  "junk_patterns": ["\\.log$", "^\\.DS_Store$", "\\.tmp$", "^temp", "__pycache__"],
+  "exclude_always": ["dont_delete", "\\.md$"]
+}

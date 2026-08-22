@@ -1,0 +1,7 @@
+{
+  "name": "standard",
+  "description": "Harness default: full shell + file access. No safe_scanner mounted.",
+  "model": "mock-deepseek-creator-v1",
+  "sandbox_root": "demo-task",
+  "tools": ["file_read", "shell"]
+}

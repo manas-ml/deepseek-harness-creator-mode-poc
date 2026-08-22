@@ -1,0 +1,10 @@
+{
+  "name": "intern-mode",
+  "description": "Childproofed preset: read-only file access plus safe_scanner. No shell, no write, no delete.",
+  "model": "mock-deepseek-creator-v1",
+  "sandbox_root": "demo-task",
+  "tools": [
+    "file_read",
+    "safe_scanner"
+  ]
+}

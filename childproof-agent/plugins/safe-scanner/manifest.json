@@ -1,0 +1,9 @@
+{
+  "name": "safe_scanner",
+  "version": "0.1.0",
+  "category": "tool",
+  "entry": "plugin.py",
+  "class": "SafeScannerTool",
+  "permissions": ["read"],
+  "description": "Read-only directory scan that flags files that look safe to remove, with a one-line reason per file. No write, no delete, no shell."
+}
