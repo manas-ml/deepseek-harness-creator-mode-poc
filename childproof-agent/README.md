@@ -1,14 +1,26 @@
 # childproof-agent
 
-A self-contained demo that proves one story: **the same agent, running the
-same prompt, behaves safely or dangerously purely based on which preset it's
-loaded under** — and that preset can be authored live, without touching
-harness source code.
+A demo that proves one story: **the same agent, running the same prompt,
+behaves safely or dangerously purely based on which preset it's loaded
+under** — and that preset can be authored live, without touching harness
+source code.
 
-It's built as a minimal, dependency-free stand-in for DeepSeek Harness's
-Cordis plugin kernel — just enough plugin registration, tool sandboxing, and
-preset loading to make the story real and reproducible, without requiring
-the actual harness runtime or a live model API key.
+This directory has two tracks:
+
+- **This README, `harness/`, `plugins/`, `presets/`, `trajectories/`** — a
+  standalone, dependency-free Python simulation of DeepSeek Harness's Cordis
+  plugin kernel. Nothing here talks to the real harness; it's a from-scratch
+  stand-in built to make the story runnable without any external dependency.
+- **`real-harness/`** — the same story run for real against a cloned checkout
+  of [`deepseek-ai/deepseek-harness`](https://github.com/deepseek-ai/deepseek-harness)
+  (yes, it's a real, substantial open-source project — see that directory's
+  own README for what's genuinely verified vs. simulated there): real Cordis
+  kernel, real tool registry, real `bash` tool actually deleting files, two
+  new real Cordis tool plugins, and a real `UNKNOWN_TOOL` rejection captured
+  straight from the framework when a scripted model tries to call a tool
+  that was never mounted. See `real-harness/README.md`.
+
+The rest of this file documents the Python simulation track.
 
 **Everything the "risky" preset can touch is confined to `demo-task/`.** The
 shell tool is pinned to that directory's cwd, restricted to a small verb
